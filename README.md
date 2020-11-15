@@ -1,2 +1,1 @@
-# online-pharmacy-front
-
+# Online Pharmacy App
