@@ -1,5 +1,103 @@
-import React from "react";
+import React, {SyntheticEvent, useState} from "react";
+import {Button, Form} from "react-bootstrap";
+import {register} from "../services/auth.service";
 
 export default function Register(){
-    return <h1>REGISTER</h1>;
+    const [firstName, setFirstName] = useState("");
+    const [middleName, setMiddleName] = useState("");
+    const [lastName, setLastName] = useState("");
+    const [dateOfBirth, setDateOfBirth] = useState("");
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [confirmPassword, setConfirmPassword] = useState("");
+
+    function validateForm() {
+        return email.length > 0 && password.length > 0;
+    }
+
+    async function handleSubmit(event:SyntheticEvent) {
+event.preventDefault();
+        const target = event.target as typeof event.target & {
+            firstName: { value: string };
+            middleName: { value: string };
+            lastName: { value: string };
+            dateOfBirth: { value: string };
+            email: { value: string };
+            password: { value: string };
+            confirmPassword: { value: string };
+        };
+        const email = target.email.value;
+        const password = target.password.value;
+        const result=await register(firstName,middleName,lastName,dateOfBirth,email,password,confirmPassword);
+        console.log(result);
+    }
+
+    return    <div className="Register">
+        <Form onSubmit={handleSubmit}>
+            <Form.Group controlId="firstName">
+                <Form.Label>First Name</Form.Label>
+                <Form.Control
+                    autoFocus
+                    type="text"
+                    value={firstName}
+                    onChange={(e) => setFirstName(e.target.value)}
+                />
+            </Form.Group>
+            <Form.Group controlId="middleName">
+                <Form.Label>Middle Name</Form.Label>
+                <Form.Control
+                    autoFocus
+                    type="text"
+                    value={middleName}
+                    onChange={(e) => setMiddleName(e.target.value)}
+                />
+            </Form.Group>
+            <Form.Group controlId="lastName">
+                <Form.Label>Last Name</Form.Label>
+                <Form.Control
+                    autoFocus
+                    type="text"
+                    value={lastName}
+                    onChange={(e) => setLastName(e.target.value)}
+                />
+            </Form.Group>
+            <Form.Group controlId="dateOfBirth">
+                <Form.Label>Date of Birth</Form.Label>
+                <Form.Control
+                    autoFocus
+                    type="date"
+                    value={dateOfBirth}
+                    onChange={(e) => setDateOfBirth(e.target.value)}
+                />
+            </Form.Group>
+            <Form.Group controlId="email">
+                <Form.Label>Email</Form.Label>
+                <Form.Control
+                    autoFocus
+                    type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                />
+            </Form.Group>
+            <Form.Group controlId="password">
+                <Form.Label>Password</Form.Label>
+                <Form.Control
+                    type="password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                />
+            </Form.Group>
+            <Form.Group controlId="confirmPassword">
+                <Form.Label>Password</Form.Label>
+                <Form.Control
+                    type="password"
+                    value={confirmPassword}
+                    onChange={(e) => setConfirmPassword(e.target.value)}
+                />
+            </Form.Group>
+            <Button block size="lg" type="submit" disabled={!validateForm()}>
+                Register
+            </Button>
+        </Form>
+    </div>
 }
