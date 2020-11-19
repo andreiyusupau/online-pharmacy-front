@@ -1,6 +1,6 @@
 import React, {SyntheticEvent, useState} from "react";
-import { Form,Button } from 'react-bootstrap';
-import {login} from "../services/auth.service"
+import {Form, Button, InputGroup} from 'react-bootstrap';
+import {login} from "../../services/authService"
 export default function Login() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -25,18 +25,21 @@ export default function Login() {
     return (
         <div className="Login">
             <Form onSubmit={handleSubmit}>
-                <Form.Group controlId="email">
-                    <Form.Label>Email</Form.Label>
+                <InputGroup className="mb-2 mr-sm-2">
+                    <InputGroup.Prepend>
+                        <InputGroup.Text>@</InputGroup.Text>
+                    </InputGroup.Prepend>
                     <Form.Control
                         autoFocus
                         type="email"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                     />
-                </Form.Group>
+                </InputGroup>
                 <Form.Group controlId="password">
                     <Form.Label>Password</Form.Label>
                     <Form.Control
+                        required
                         type="password"
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}

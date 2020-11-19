@@ -1,6 +1,6 @@
 import React, {SyntheticEvent, useState} from "react";
-import {Button, Form} from "react-bootstrap";
-import {register} from "../services/auth.service";
+import {Button, Form, InputGroup} from "react-bootstrap";
+import {register} from "../../services/authService";
 
 export default function Register(){
     const [firstName, setFirstName] = useState("");
@@ -70,15 +70,18 @@ event.preventDefault();
                     onChange={(e) => setDateOfBirth(e.target.value)}
                 />
             </Form.Group>
-            <Form.Group controlId="email">
-                <Form.Label>Email</Form.Label>
+            <InputGroup className="mb-2 mr-sm-2">
+                <InputGroup.Prepend>
+                    <InputGroup.Text>@</InputGroup.Text>
+                </InputGroup.Prepend>
                 <Form.Control
                     autoFocus
                     type="email"
+                    placeholder="name@example.com"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                 />
-            </Form.Group>
+            </InputGroup>
             <Form.Group controlId="password">
                 <Form.Label>Password</Form.Label>
                 <Form.Control
