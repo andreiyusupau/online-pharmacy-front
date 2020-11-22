@@ -22,7 +22,7 @@ export default function AddProductCategory(){
         console.log(result);
     }
 
-    return    <div className="AddProductCategory">
+    return <div className="AddProductCategory">
         <Form onSubmit={handleSubmit}>
             <Form.Group controlId="name">
                 <Form.Label>Name</Form.Label>

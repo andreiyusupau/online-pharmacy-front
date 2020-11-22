@@ -23,7 +23,7 @@ export default function AddUser(){
             firstName: { value: string };
             middleName: { value: string };
             lastName: { value: string };
-            dateOfBirth: { value: string };
+            dateOfBirth: { value:string };
             email: { value: string };
             password: { value: string };
             confirmPassword: { value: string };
