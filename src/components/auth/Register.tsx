@@ -91,7 +91,7 @@ event.preventDefault();
                 />
             </Form.Group>
             <Form.Group controlId="confirmPassword">
-                <Form.Label>Password</Form.Label>
+                <Form.Label>Confirm password</Form.Label>
                 <Form.Control
                     type="password"
                     value={confirmPassword}

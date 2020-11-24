@@ -66,7 +66,7 @@ export default function AddCreditCard() {
                 <Form.Label>CVV</Form.Label>
                 <Form.Control
                     autoFocus
-                    type="string"
+                    type="text"
                     value={cvv}
                     onChange={(e) => setCvv(e.target.value)}
                 />

@@ -3,9 +3,14 @@ import {Table,Button} from "react-bootstrap";
 import {get, User} from "../../services/userService";
 import {useParams} from "react-router-dom";
 
-//TODO:
 export default function ShowUser(){
-    const [user, setUser] = useState<User>({id:-1,firstName:'',middleName:'',lastName:'',dateOfBirth:new Date(),email:'',role:''});
+    const [user, setUser] = useState<User>({id:0,
+        firstName:'',
+        middleName:'',
+        lastName:'',
+        dateOfBirth:new Date(),
+        email:'',
+        role:''});
     const {id}:any=useParams();
 
     useEffect(() => {

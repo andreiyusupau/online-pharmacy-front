@@ -1,9 +1,9 @@
 import React from "react";
-import {Navbar, Nav, NavDropdown,Form,FormControl,Button} from "react-bootstrap";
+import {Navbar, Nav,Form,FormControl,Button} from "react-bootstrap";
 
 export default function Navigation(){
     return <Navbar bg="light" expand="lg">
-        <Navbar.Brand href="#home">Pharmline</Navbar.Brand>
+        <Navbar.Brand href="/">Pharmline</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mr-auto">

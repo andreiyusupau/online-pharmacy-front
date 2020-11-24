@@ -9,6 +9,7 @@ import ListProductCategories from "./components/product/ListProductCategories";
 import EditProductCategory from "./components/product/EditProductCategory";
 import Navigation from "./components/Navbar";
 import ShowUser from "./components/user/User";
+import AddProduct from "./components/product/AddProduct";
 
 export default function App() {
   return <Router>
@@ -19,6 +20,7 @@ export default function App() {
     <Route exact path="/productcategories/add" component={AddProductCategory}/>
     <Route path="/productcategories" component={ListProductCategories}/>
     <Route path="/productcategories/:id" component={EditProductCategory}/>
+    <Route exact path="/products/add" component={AddProduct}/>
     <Route path="/users/:id" component={ShowUser}/>
   </Router>;
 }

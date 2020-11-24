@@ -11,7 +11,7 @@ export interface Product{
     recipeRequired:boolean
 }
 
-export async function add(name: string, price: string,productCategoryId: number, recipeRequired:boolean) {
+export async function add(name: string, price: string, productCategoryId: number, recipeRequired:boolean) {
     try {
         const response = await axios.post(API_URL, {
             name,
