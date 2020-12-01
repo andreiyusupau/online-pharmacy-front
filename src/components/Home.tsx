@@ -20,7 +20,8 @@ export default function Home() {
         }
     }
 
-    return <CardDeck>
+    return <div>
+        <CardDeck>
         {products.map((product:Product)=>{
             return <Card style={{width: '18rem'}}>
                 <Card.Img variant="top" src={pillsImg}/>
@@ -34,5 +35,6 @@ export default function Home() {
             </Card>
         })
         }
-        </CardDeck>;
+    </CardDeck>
+    </div>;
 }

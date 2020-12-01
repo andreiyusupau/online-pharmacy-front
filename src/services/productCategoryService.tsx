@@ -37,3 +37,15 @@ export async function get(id:number) {
         console.log(e);
     }
 }
+
+export async function update(id:number, name: string, description: string) {
+    try {
+        const response = await axios.put(API_URL+`/${id}`, {
+            name,
+            description
+        })
+        return response.data;
+    } catch (e) {
+        console.log(e);
+    }
+}

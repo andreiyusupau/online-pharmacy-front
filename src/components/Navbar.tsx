@@ -1,5 +1,5 @@
 import React from "react";
-import {Navbar, Nav,Form,FormControl,Button} from "react-bootstrap";
+import {Navbar, Nav} from "react-bootstrap";
 
 export default function Navigation(){
     return <Navbar bg="light" expand="lg">
@@ -10,11 +10,9 @@ export default function Navigation(){
                 <Nav.Link href="/">Home</Nav.Link>
                 <Nav.Link href="/login">Login</Nav.Link>
                 <Nav.Link href="/register">Register</Nav.Link>
+                <Nav.Link href="/productcategories/add">Add Product Category</Nav.Link>
+                <Nav.Link href="/products/add">Add Product</Nav.Link>
             </Nav>
-            <Form inline>
-                <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-                <Button variant="outline-success">Search</Button>
-            </Form>
         </Navbar.Collapse>
     </Navbar>;
 }

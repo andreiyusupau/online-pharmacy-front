@@ -1,6 +1,6 @@
 import React, {SyntheticEvent, useEffect, useState} from "react";
 import {Button, Form} from "react-bootstrap";
-import {add, get, ProductCategory} from "../../services/productCategoryService";
+import {get, ProductCategory, update} from "../../services/productCategoryService";
 import {useParams} from "react-router-dom";
 
 export default function EditProductCategory(){
@@ -33,7 +33,7 @@ export default function EditProductCategory(){
         };
         const name = target.name.value;
         const description = target.description.value;
-        const result=await add(name,description);
+        const result=await update(id,name,description);
         console.log(result);
     }
 
