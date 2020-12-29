@@ -12,6 +12,15 @@ import ShowUser from "./components/user/User";
 import AddProduct from "./components/product/AddProduct";
 import ListProducts from "./components/product/ListProducts";
 import EditProduct from "./components/product/EditProduct";
+import ShowCart from "./components/order/ShowCart";
+import ListOrders from "./components/order/ListOrders";
+import ShowOrder from "./components/order/ShowOrder";
+import EditOrder from "./components/order/EditOrder";
+import AddProcurement from "./components/procurement/AddProcurement";
+import ListProcurements from "./components/procurement/ListProcurements";
+import ShowProcurement from "./components/procurement/ShowProcurement";
+import EditProcurement from "./components/procurement/EditProcurement";
+import ListStockPositions from "./components/stock/ListStockPositions";
 
 export default function App() {
   return <Router>
@@ -25,6 +34,15 @@ export default function App() {
     <Route exact path="/products" component={ListProducts}/>
     <Route exact path="/products/add" component={AddProduct}/>
     <Route exact path="/products/:id/edit" component={EditProduct}/>
-    <Route path="/users/:id" component={ShowUser}/>
+    <Route exact path="/users/:id" component={ShowUser}/>
+    <Route exact path="/cart" component={ShowCart}/>
+    <Route exact path="/orders" component={ListOrders}/>
+    <Route exact path="/orders/:id" component={ShowOrder}/>
+    <Route exact path="/orders/:id/edit" component={EditOrder}/>
+    <Route exact path="/procurements/add" component={AddProcurement}/>
+    <Route exact path="/procurements" component={ListProcurements}/>
+    <Route exact path="/procurements/:id" component={ShowProcurement}/>
+    <Route exact path="/procurements/:id/edit" component={EditProcurement}/>
+    <Route exact path="/stock" component={ListStockPositions}/>
   </Router>;
 }

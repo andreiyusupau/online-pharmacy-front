@@ -12,6 +12,11 @@ export default function Navigation(){
                 <Nav.Link href="/register">Register</Nav.Link>
                 <Nav.Link href="/productcategories/add">Add Product Category</Nav.Link>
                 <Nav.Link href="/products/add">Add Product</Nav.Link>
+                <Nav.Link href="/cart">Cart</Nav.Link>
+                <Nav.Link href="/orders">List Orders</Nav.Link>
+                <Nav.Link href="/procurements/add">Add Procurement</Nav.Link>
+                <Nav.Link href="/procurements">List Procurements</Nav.Link>
+                <Nav.Link href="/stock">List Stock Positions</Nav.Link>
             </Nav>
         </Navbar.Collapse>
     </Navbar>;

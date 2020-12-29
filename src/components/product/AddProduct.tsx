@@ -8,7 +8,7 @@ export default function AddProduct() {
     const [price, setPrice] = useState("");
     const [productCategoryId, setProductCategoryId] = useState(0);
     const [recipeRequired, setRecipeRequired] = useState(false);
-    const [productCategories, setProductCategories] = useState([]);
+    const [productCategories, setProductCategories] = useState<ProductCategory[]>([]);
 
     useEffect(() => {
         fetchData();
@@ -17,7 +17,8 @@ export default function AddProduct() {
     async function fetchData() {
         try {
             const data=await getAll();
-            setProductCategories(data)
+            setProductCategories(data);
+            setProductCategoryId(data[0].id);
         } catch (e) {
             console.error(e);
         }
@@ -62,6 +63,7 @@ export default function AddProduct() {
                     })}
                 </Form.Control>
             </Form.Group>
+            <Form.Label>Recipe Required</Form.Label>
             <ButtonGroup toggle>
                 <ToggleButton
                     key="1"
@@ -70,7 +72,7 @@ export default function AddProduct() {
                     name="radio"
                     value="true"
                     checked={recipeRequired}
-                    onChange={(e) => setRecipeRequired(!recipeRequired)}
+                    onChange={() => setRecipeRequired(!recipeRequired)}
                 >
                     YES
                 </ToggleButton>
@@ -81,7 +83,7 @@ export default function AddProduct() {
                     name="radio"
                     value="false"
                     checked={!recipeRequired}
-                    onChange={(e) => setRecipeRequired(!recipeRequired)}
+                    onChange={() => setRecipeRequired(!recipeRequired)}
                 >
                     NO
                 </ToggleButton>

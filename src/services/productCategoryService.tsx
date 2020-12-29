@@ -49,3 +49,12 @@ export async function update(id:number, name: string, description: string) {
         console.log(e);
     }
 }
+
+export async function remove(id:number) {
+    try {
+        const response = await axios.delete(API_URL+`/${id}`)
+        return response.data;
+    } catch (e) {
+        console.log(e);
+    }
+}

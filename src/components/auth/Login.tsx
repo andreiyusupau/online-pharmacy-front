@@ -1,9 +1,12 @@
 import React, {SyntheticEvent, useState} from "react";
 import {Form, Button, InputGroup} from 'react-bootstrap';
-import {login} from "../../services/authService"
+import {login} from "../../services/authService";
+import {useDispatch} from "react-redux";
+
 export default function Login() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const dispatch = useDispatch();
 
     function validateForm() {
         return email.length > 0 && password.length > 0;
@@ -12,14 +15,9 @@ export default function Login() {
     async function handleSubmit(event:SyntheticEvent) {
         console.log("EVENT LOGIN");
         event.preventDefault();
-        const target = event.target as typeof event.target & {
-            email: { value: string };
-            password: { value: string };
-        };
-        const email = target.email.value;
-        const password = target.password.value;
        const result=await login(email,password);
         console.log(result);
+        dispatch({type: 'user/save', payload: result});
     }
 
     return (
@@ -30,6 +28,7 @@ export default function Login() {
                         <InputGroup.Text>@</InputGroup.Text>
                     </InputGroup.Prepend>
                     <Form.Control
+                        required
                         autoFocus
                         type="email"
                         value={email}

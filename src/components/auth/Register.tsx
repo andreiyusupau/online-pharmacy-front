@@ -17,17 +17,6 @@ export default function Register(){
 
     async function handleSubmit(event:SyntheticEvent) {
 event.preventDefault();
-        // const target = event.target as typeof event.target & {
-        //     firstName: { value: string };
-        //     middleName: { value: string };
-        //     lastName: { value: string };
-        //     dateOfBirth: { value: string };
-        //     email: { value: string };
-        //     password: { value: string };
-        //     confirmPassword: { value: string };
-        // };
-        // const email = target.email.value;
-        // const password = target.password.value;
         const result=await register(firstName,middleName,lastName,dateOfBirth,email,password,confirmPassword);
         console.log(result);
     }

@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
-import { Table } from "react-bootstrap";
-import {getAll, ProductCategory} from "../../services/productCategoryService";
+import { Table,Button } from "react-bootstrap";
+import {getAll, ProductCategory, remove} from "../../services/productCategoryService";
 
 export default function ListProductCategories(){
 
@@ -26,6 +26,8 @@ export default function ListProductCategories(){
                 <th>id</th>
                 <th>Name</th>
                 <th>Description</th>
+                <th></th>
+                <th></th>
             </tr>
             </thead>
             <tbody>
@@ -35,6 +37,8 @@ export default function ListProductCategories(){
                         <td>{productCategory.id}</td>
                         <td>{productCategory.name}</td>
                         <td>{productCategory.description}</td>
+                     <td> <Button href={"productcategories/"+productCategory.id+"/edit"}>Edit</Button></td>
+                     <td> <Button onClick={() => remove(productCategory.id)}>Delete</Button></td>
                     </tr>
                 })
             }
